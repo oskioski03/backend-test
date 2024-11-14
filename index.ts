@@ -1,6 +1,7 @@
-const express = require('express')
-const cors  = require('cors')
-const data = require('./data')
+import express, { Request, Response } from 'express'
+import  cors  from 'cors'
+import { data } from './data';
+
 
 const app = express()
 
@@ -12,7 +13,7 @@ app.use(cors({
   }))
 
 
-app.get('/data', (req, res) => {
+app.get('/data', (req: Request, res: Response) => {
     res.send(data)
 })
 
