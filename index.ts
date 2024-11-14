@@ -9,7 +9,7 @@ const app = express();
 const PORT = 4200;
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'http://frog01.mikr.us:31679',
     credentials: true,
   }))
 
