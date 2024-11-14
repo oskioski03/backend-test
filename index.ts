@@ -3,7 +3,7 @@ import  cors  from 'cors'
 import { data } from './data';
 
 
-const app = express()
+const app = express();
 
 const PORT = 4200;
 
