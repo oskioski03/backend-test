@@ -50,7 +50,7 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          source: "docker-compose.yaml,.env"
+          source: "docker-compose.yaml, .env"
           target: "app"
 
       - name: Deploy to VPS
@@ -61,6 +61,6 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /app
+            cd app
             docker-compose pull
             docker-compose up -d
