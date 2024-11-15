@@ -20,7 +20,6 @@ services:
     restart: always
     environment:
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
-      
     depends_on:
       - postgres
     networks:
