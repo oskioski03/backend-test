@@ -17,8 +17,10 @@ app.use(cors({
 
 
 app.get('/', async (req, res) => {
+  console.log('get')
   try {
     const result = await pool.query('SELECT * FROM users');
+    console.log('result ', result)
     res.json(result.rows);
   } catch (err) {
     console.error(err);
