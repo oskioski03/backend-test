@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express'
 import  cors  from 'cors'
 import { data } from './data';
+import { pool } from './db';
 
 
 const app = express();
@@ -13,6 +14,17 @@ app.use(cors({
     credentials: true,
   }))
 
+
+
+app.get('/', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM users');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 app.get('/data', (req: Request, res: Response) => {
     res.send(data)
