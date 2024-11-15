@@ -41,7 +41,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "docker-compose.yaml,.env"
-          target: "/app/backend"
+          target: "/app"
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
@@ -51,6 +51,6 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /app/backend
+            cd /app
             docker-compose pull
             docker-compose up -d
