@@ -41,7 +41,7 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          source: ".env,docker-compose.yaml"
+          source: "docker-compose.yaml"
           target: "app"
 
       - name: Deploy to VPS
