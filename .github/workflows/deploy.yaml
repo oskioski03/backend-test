@@ -53,5 +53,5 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             cd app
-            docker-compose --env-file ../envs/.env.production.backend pull
-            docker-compose --env-file ../envs/.env.production.backend up -d
+            docker compose --env-file ../envs/.env.production.backend pull
+            docker compose --env-file ../envs/.env.production.backend up -d
