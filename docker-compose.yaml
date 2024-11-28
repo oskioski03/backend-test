@@ -3,8 +3,6 @@ services:
     image: postgres:latest
     container_name: postgres
     restart: always
-    env_file:
-      - envs/.env.production.backend
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -20,8 +18,6 @@ services:
     image: ${BACKEND_IMAGE}
     container_name: backend
     restart: always
-    env_file:
-      - envs/.env.production.backend
     environment:
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
       DB_USER: ${DB_USER}
