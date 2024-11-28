@@ -1,0 +1,38 @@
+# services:
+#   postgres:
+#     image: postgres:latest
+#     container_name: postgres
+#     restart: always
+#     environment:
+#       POSTGRES_USER: ${DB_USER}
+#       POSTGRES_PASSWORD: ${DB_PASSWORD}
+#       POSTGRES_DB: ${DB_NAME}
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     networks:
+#       - backend-network
+#     ports:
+#       - 5432:5432
+
+#   backend:
+#     image: ${BACKEND_IMAGE}
+#     container_name: backend
+#     restart: always
+#     environment:
+#       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
+#       DB_USER: ${DB_USER}
+#       DB_PASSWORD: ${DB_PASSWORD}
+#       DB_NAME: ${DB_NAME}
+#     depends_on:
+#       - postgres
+#     networks:
+#       - backend-network
+#     ports:
+#       - 41679:4200 
+
+# volumes:
+#   postgres_data:
+
+# networks:
+#   backend-network:
+#     driver: bridge
